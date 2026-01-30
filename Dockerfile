@@ -23,10 +23,11 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Copiar proyecto
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --optimize-autoloader
+
 COPY . .
 
-# Instalar dependencias Symfony
-RUN composer install --no-dev --optimize-autoloader
 
 # Permisos
 RUN chown -R www-data:www-data /var/www/html
