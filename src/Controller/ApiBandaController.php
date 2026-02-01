@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ApiBandaController
 {
+    
     #[Route('/api/inscripcion', name: 'api_inscripcion_banda', methods: ['POST'])]
     public function inscribir(Request $request, EntityManagerInterface $em): JsonResponse
     {
